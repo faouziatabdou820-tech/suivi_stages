@@ -1,0 +1,13 @@
+__pycache__/
+*.[oc]
+db.sqlite3
+.venev/
+build
+dist/
+wheels/
+*.egg-info
+
+
+#virtual environnement
+
+.venv/
