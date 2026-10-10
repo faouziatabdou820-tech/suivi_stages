@@ -1,0 +1,26 @@
+body {
+  font-family: sans-serif;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1rem;
+  line-height: 1.5;
+  color: #000;
+  background: #fff;
+}
+
+header { border-bottom: 2px solid #000; margin-bottom: 1rem; }
+nav a { margin-right: 1rem; font-weight: bold; }
+
+a { color: #000; text-decoration: underline; }
+a:hover { background: #000; color: #fff; }
+
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #000; padding: .4rem .6rem; text-align: left; }
+th { background: #eee; }
+
+footer {
+  border-top: 1px solid #000;
+  margin-top: 2rem;
+  padding-top: .5rem;
+  font-size: .9rem;
+}
