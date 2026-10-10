@@ -101,16 +101,12 @@ offre3, _ = Offre.objects.get_or_create(
               "nb_places": 2},
 )
 
-# Champ au singulier, comme dans votre modèle actuel.
-# Si vous l'avez renommé en "competences", ajoutez le "s" ici.
-offre1.competence.set([django, python])
 offre2.competence.set([python, sql, javascript])
 offre3.competence.set([django, html, javascript])
 print("Offres :", list(Offre.objects.all()))
 
 # ---------- Candidatures (6, statuts variés) ----------
 print("\n--- CANDIDATURES ---")
-# Si votre modèle a aussi un champ "status", il est rempli automatiquement.
 champs_candidature = {f.name for f in Candidature._meta.get_fields()}
 
 
