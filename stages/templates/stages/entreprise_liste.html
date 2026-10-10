@@ -1,0 +1,27 @@
+{% extends "stages/base.html" %}
+
+{% block titre %}Entreprises{% endblock %}
+
+{% block contenu %}
+<h2>Entreprises</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Secteur</th>
+      <th>Ville</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for e in entreprises %}
+        <tr>
+          <td><a href="{% url 'stages:entreprise_detail' e.pk %}">{{ e.nom }}</a></td>
+          <td>{{ e.secteur }}</td>
+          <td>{{ e.ville }}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="3">Aucune entreprise.</td></tr>
+      {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

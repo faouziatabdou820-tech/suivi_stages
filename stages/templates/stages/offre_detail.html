@@ -1,0 +1,16 @@
+{% extends "stages/base.html" %}
+{% block titre %} {{ offre.titre }} {% endblock %}
+{% block contenu %}
+<h2>{{ offre.titre}}</h2>
+<p> Publiée par
+    <a href="{% url 'stages:entreprise_detail' offre.entreprise.pk %}">{{ offre.entreprise.nom}}</a>
+</p>
+<p> Du {{ offre.date_debut}} au {{ offre.date_fin }} - {{ offre.nb_places}} place(s) {{ offre.entreprise.nom}}</p>
+<p> Compétences :  
+    {% for c in offre.competences.all %} {{ c.libelle }} {% if not forloop.last %} , {% endif %} {% endfor %}
+</p>
+<div>{{ offre.description|linebreaks }}</div>
+{% endblock %}
+
+
+

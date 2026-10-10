@@ -1,0 +1,15 @@
+{% extends "stages/base.html" %}
+{% block titre %}{{ entreprise.nom}}{%endblock %}
+{% block contenu %}
+<h2>{{ entreprise.nom}}</h2>
+<p>Secteur : {{entreprise.secteur}} </p>
+<p>ville : {{entreprise.ville}}</p>
+<h3>Les offres</h3>
+<ul>
+    {% for offre in offres %}
+        <li><a href="{% url 'stages:offre_detail' offre.pk %}">{{ offre.titre}}</a></li>
+    {% empty %}
+        <li>Aucune offre.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

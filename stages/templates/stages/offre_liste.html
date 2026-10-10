@@ -1,0 +1,29 @@
+{% extends "stages/base.html" %}
+{% block titre %}Offres{% endblock %}
+{% block contenu %}
+<h2>Offres de stage</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Intitulé</th>
+            <th>Entreprise</th>
+            <th>Dates</th>
+            <th>Places</th>
+            <th>Compétences</th>
+        </tr>
+    </thead>
+    <tbody>
+            {% for offre in offres %}
+            <tr>
+                <td><a href="{% url 'stages:offre_detail' offre.pk %}">{{offre.titre}}</a></td>
+                <td><a href="{% url 'stages:entreprise_detail' offre.entreprise.pk %}">{{offre.entreprise.nom}}</a></td></a>
+                <td>{{offre.date_debut}} - {{offre.date_fin}}</td>
+                <td>{{offre.nb_places}}</td>
+                <td>{% for c in offre.competence.all %} {{c.libelle}} {% if not forloop.last %}, {% endif %} {% endfor %}</td>
+            </tr>
+            {% empty %}
+                <tr><td colspan="5">Aucun offre</td></tr>
+            {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
